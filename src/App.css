@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -32,20 +34,4 @@ body {
     padding: 5px 0 0 5px;
     border-right: 1px solid #3f3f3f;
     height: 100%;
-}
-
-/* new */
-
-#new-message {
-    padding: 0px;
-    height: 50px;
-}
-
-#new-message input {
-    font-family: "Press Start 2P";
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    height: 50px;
-    padding: 5px;
 }
