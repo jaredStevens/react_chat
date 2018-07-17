@@ -4,6 +4,9 @@ const wss = new WebSocket.Server({ port: 8989 });
 const app = express();
 const PORT = process.env.PORT || 3000;
 	app.set("port", PORT);
+
+app.use(express.static('build'));
+
 const users = [];
 const broadcast = (data, ws) => {
 	wss.clients.forEach((client) => {
@@ -52,10 +55,10 @@ wss.on('connection', (ws) => {
 	});
 });
 
-app.listen(PORT, function(){
-	console.log("\n\n===== listening for requests on port " + PORT + " =====\n\n");
+app.get('*', function(req, res, next){
+	res.sendFile(dirName + "/build/index.html");
 });
 
-app.get('*', function(req, res, next){
-	res.sendFile("/home/jared/react_chat/build/index.html");
+app.listen(PORT, function(){
+	console.log("\n\n===== listening for requests on port " + PORT + " =====\n\n");
 });
