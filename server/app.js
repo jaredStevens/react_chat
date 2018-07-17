@@ -1,11 +1,14 @@
 const express = require('express');
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 8989 });
+const http = require('http');
 const app = express();
 const PORT = process.env.PORT || 3000;
 	app.set("port", PORT);
 
 app.use(express.static('build'));
+
+const server = http.createServer(app);
+const wss = new WebSocket.Server({server});
 
 const users = [];
 const broadcast = (data, ws) => {
@@ -56,9 +59,9 @@ wss.on('connection', (ws) => {
 });
 
 app.get('*', function(req, res, next){
-	res.sendFile(dirName + "/build/index.html");
+	res.sendFile(_dirName + "/build/index.html");
 });
 
-app.listen(PORT, function(){
+server.listen(PORT, function(){
 	console.log("\n\n===== listening for requests on port " + PORT + " =====\n\n");
 });
