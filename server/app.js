@@ -57,5 +57,5 @@ app.listen(PORT, function(){
 });
 
 app.get('*', function(req, res, next){
-	res.sendFile(__dirname + "/public/views/index.html");
+	res.sendFile("/home/jared/react_chat/build/index.html");
 });
