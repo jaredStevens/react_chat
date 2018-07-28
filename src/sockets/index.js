@@ -3,7 +3,7 @@ import {addUser, messageReceived, populateUsersList} from '../actions'
 
 const setupSocket = (dispatch, username) => {
 	var url = 'wss://' + window.location.host;
-	if (window.location.port == '3001') {
+	if (window.location.port === '3001') {
 		url = 'ws://localhost:3000'
 	}
 	const socket = new WebSocket(url)

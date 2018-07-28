@@ -59,7 +59,7 @@ wss.on('connection', (ws) => {
 });
 
 app.get('*', function(req, res, next){
-	res.sendFile(_dirName + "/build/index.html");
+	res.sendFile(__dirName + "/build/index.html");
 });
 
 server.listen(PORT, function(){
